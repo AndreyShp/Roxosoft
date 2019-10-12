@@ -1,0 +1,3 @@
+<div [ngClass]="['order-status-icon order-status-icon-' + status]">
+  <div [ngClass]="['order-status-title order-status-' + status]" *ngIf="needTitle">{{ status == 1 ? "In&nbsp;Progress" : "Completed" }}</div>
+</div>

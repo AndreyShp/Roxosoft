@@ -1,0 +1,26 @@
+.order-status-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.order-status-title {
+  margin-left: 25px;
+}
+
+/* 2 - это статус Completed */
+.order-status-icon-2 {
+  background: #5b7f01;
+}
+
+.order-status-2 {
+  color: #5b7f01;
+}
+
+/* 1 это статус InProgress */
+.order-status-icon-1 {
+  background: #ff00dd;
+}
+
+.order-status-1 {
+  color: #ff00dd;
+}

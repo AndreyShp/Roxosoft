@@ -1,0 +1,19 @@
+<p *ngIf="!orders"><em>Загрузка заказов...</em></p>
+
+<table class='table table-borderless table-hover' *ngIf="orders">
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.temperatureC }}</td>
+      <td>{{ order.dateFormatted }}</td>
+      <td>{{ order.temperatureC }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">
+        <app-order-status [status]="1" [needTitle]="true"></app-order-status><br />
+        <app-order-status [status]="2" [needTitle]="true"></app-order-status>
+      </td>
+    </tr>
+  </tfoot>
+</table>
