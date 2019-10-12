@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <AssemblyName>Roxosoft.Orders.Contracts</AssemblyName>
+        <RootNamespace>Roxosoft.Orders.Contracts</RootNamespace>
+    </PropertyGroup>
+
+</Project>
