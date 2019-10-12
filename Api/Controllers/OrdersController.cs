@@ -16,7 +16,7 @@ namespace Roxosoft.Orders.Api.Controllers {
         }
 
         /// <inheritdoc />
-        // GET api/values
+        // GET api/orders
         [HttpGet]
         public async Task<ICollection<Order>> Get([FromQuery]Query query = null) {
             var result = await _ordersManager.GetAsync(query);
@@ -24,18 +24,18 @@ namespace Roxosoft.Orders.Api.Controllers {
         }
 
         /// <inheritdoc />
-        // GET api/values/5
+        // GET api/orders/5
         [HttpGet("{id}")]
-        public async Task<Order> GetDetails(long orderId) {
-            var result = await _ordersManager.GetAsync(orderId);
+        public async Task<Order> Get(long id) {
+            var result = await _ordersManager.GetAsync(id);
             return result;
         }
 
-        // POST api/values
+        // POST api/orders
         [HttpPost]
         public void Post([FromBody] string value) { }
 
-        // PUT api/values/5
+        // PUT api/orders/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value) { }
 

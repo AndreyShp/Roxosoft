@@ -17,8 +17,8 @@ namespace Roxosoft.Orders.Contracts {
         /// <summary>
         /// Получает заказ с продуктами
         /// </summary>
-        /// <param name="orderId">идентификатор заказа</param>
+        /// <param name="id">идентификатор заказа</param>
         /// <returns>заказ</returns>
-        Task<Order> GetDetails(long orderId);
+        Task<Order> Get(long id);
     }
 }

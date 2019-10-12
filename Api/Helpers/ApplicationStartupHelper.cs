@@ -22,8 +22,11 @@ namespace Roxosoft.Orders.Api.Helpers {
         /// <param name="services">описание сервисов</param>
         /// <param name="configuration">настройки</param>
         public static void InjectDependencies(IServiceCollection services, IConfiguration configuration) {
-            var mappingConfig = new MapperConfiguration(mc => { mc.AddProfile(new MappingProfile()); });
+            var mappingConfig = new MapperConfiguration(mc => {
+                                                            mc.AddProfile(new MappingProfile());
+                                                        });
             var mapper = mappingConfig.CreateMapper();
+            
             services.AddSingleton(mapper);
 
             services.AddSingleton(opt => RepositoryContextFactory.Create(configuration));

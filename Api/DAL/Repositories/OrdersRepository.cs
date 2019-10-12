@@ -52,7 +52,7 @@ namespace Roxosoft.Orders.Api.DAL.Repositories {
         private IQueryable<OrderDto> GetQueryableOrders(OrdersDbContext context, bool needProducts) {
             IQueryable<OrderDto> dbQuery;
             if (needProducts) {
-                dbQuery = context.Orders.Include(e => e.OrderProducts).AsQueryable();
+                dbQuery = context.Orders.Include(e => e.OrderProducts).ThenInclude(it => it.Product).AsQueryable();
             } else {
                 dbQuery = context.Orders;
             }
