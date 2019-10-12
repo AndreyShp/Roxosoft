@@ -22,9 +22,19 @@
         <Content Remove="$(SpaRoot)**" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+        <None Include="ClientApp\src\app\common\orders-data.component.ts" />
         <None Include="ClientApp\src\app\order-status-component\order-status-component.component.html" />
-        <None Include="ClientApp\src\app\orders-data\app.component.css" />
         <None Include="ClientApp\src\app\orders-data\orders-data.component.html" />
+        <None Remove="ClientApp\src\app\order-status-component\**" />
+        <Content Remove="ClientApp\src\app\order-status-component\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="ClientApp\src\app\order-status-component\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ClientApp\src\app\order-status-component\**" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

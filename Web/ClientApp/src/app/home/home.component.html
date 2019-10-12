@@ -2,10 +2,10 @@
 
 <div class="row">
   <div class="col-md">
-    <app-orders-data></app-orders-data>
+    <app-orders-data (onSelectOrder)="onSelectedOrder($event);"></app-orders-data>
   </div>
   <div class="col-md">
-    <app-fetch-data></app-fetch-data>
+    <app-fetch-data *ngIf="selectedOrder"></app-fetch-data>
   </div>
 </div>
 
