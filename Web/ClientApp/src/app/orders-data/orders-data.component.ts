@@ -13,7 +13,7 @@ export class OrdersDataComponent {
   @Output() onSelectOrder: EventEmitter<Order> = new EventEmitter();
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Order[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
+    http.get<Order[]>(baseUrl + 'api/orders').subscribe(result => {
       this.orders = result;
     }, error => console.error(error));
   }

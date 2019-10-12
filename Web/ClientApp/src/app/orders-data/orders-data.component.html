@@ -3,9 +3,9 @@
 <table class='table table-borderless table-hover' *ngIf="orders">
   <tbody>
     <tr *ngFor="let order of orders" [ngClass]="[(selectedOrder != null && order === selectedOrder ? 'order-data-row-selected' : '')]" (click)="selectOrder(order)">
-      <td><app-order-status [status]="order.temperatureC > 0 ? 1 : 2"></app-order-status></td>
-      <td>{{ order.dateFormatted }}</td>
-      <td>{{ order.temperatureC }}</td>
+      <td><app-order-status [status]="order.status"></app-order-status></td>
+      <td>Order #{{ order.id }}</td>
+      <td>{{ order.creationTime }}</td>
     </tr>
   </tbody>
   <tfoot>

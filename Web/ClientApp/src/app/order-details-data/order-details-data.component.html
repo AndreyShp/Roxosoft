@@ -1,0 +1,47 @@
+<p *ngIf="!order"><em>Загрузка заказа...</em></p>
+
+<div class="container" *ngIf="order">
+  <div class="row">
+    <div class="col-md-2">Number:</div>
+    <div class="col-md">Order #{{ order.id }}</div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">Date:</div>
+    <div class="col-md">{{ order.creationTime }}</div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">Status:</div>
+    <div class="col-md"><app-order-status [status]="order.status" [needTitle]="true"></app-order-status></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">Total:</div>
+    <div class="col-md">summ //TODO: посчитать</div>
+  </div>
+</div>
+
+<table class='table' *ngIf="order && order.products">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of order.products">
+      <td>{{ product.product.name }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.price * product.quantity }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td>//TODO: Summ 2</td>
+      <td>//TODO: Summ 3</td>
+      <td>//TODO: Summ 4</td>
+    </tr>
+  </tfoot>
+</table>

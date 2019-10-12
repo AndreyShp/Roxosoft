@@ -5,7 +5,5 @@
     <app-orders-data (onSelectOrder)="onSelectedOrder($event);"></app-orders-data>
   </div>
   <div class="col-md">
-    <app-fetch-data *ngIf="selectedOrder"></app-fetch-data>
-  </div>
+    <app-order-details-data [orderId]="this.selectedOrder.id" *ngIf="selectedOrder"></app-order-details-data>
 </div>
-

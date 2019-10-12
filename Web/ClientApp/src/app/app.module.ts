@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { OrderStatusComponent } from './order-status/order-status.component';
 import { OrdersDataComponent } from './orders-data/orders-data.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { OrderDetailsDataComponent } from './order-details-data/order-details-data.component';
 
 @NgModule({
   declarations: [
@@ -15,16 +15,14 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     HomeComponent,
     OrderStatusComponent,
     OrdersDataComponent,
-    FetchDataComponent
+    OrderDetailsDataComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }/*,
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },*/
+      { path: '', component: HomeComponent, pathMatch: 'full' }
     ])
   ],
   providers: [],
