@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <div class="col-md-2">Date:</div>
-    <div class="col-md">{{ order.creationTime }}</div>
+    <div class="col-md">{{ order.creationTime | date:'dd.MM.yyyy HH:mm:ss' }}</div>
   </div>
   <div class="row">
     <div class="col-md-2">Status:</div>

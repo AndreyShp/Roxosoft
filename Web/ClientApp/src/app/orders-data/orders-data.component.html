@@ -5,7 +5,7 @@
     <tr *ngFor="let order of orders" [ngClass]="[(selectedOrder != null && order === selectedOrder ? 'order-data-row-selected' : '')]" (click)="selectOrder(order)">
       <td><app-order-status [status]="order.status"></app-order-status></td>
       <td>Order #{{ order.id }}</td>
-      <td>{{ order.creationTime }}</td>
+      <td>{{ order.creationTime | date:'dd.MM.yyyy HH:mm:ss' }}</td>
     </tr>
   </tbody>
   <tfoot class="border-top">

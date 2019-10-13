@@ -7,7 +7,7 @@ using Roxosoft.Orders.Api.Helpers;
 
 namespace Roxosoft.Orders.Api {
     public class Startup {
-        private readonly string _webApiAllowSpecificOrigins = "_webApiAllowSpecificOrigins";
+        private const string WebApiAllowSpecificOrigins = "webApiAllowSpecificOrigins";
         
         public Startup(IConfiguration configuration) {
             Configuration = configuration;
@@ -18,10 +18,11 @@ namespace Roxosoft.Orders.Api {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services.AddCors(options => {
-                                 options.AddPolicy(_webApiAllowSpecificOrigins,
+                                 options.AddPolicy(WebApiAllowSpecificOrigins,
                                      builder => {
-                                         builder.WithOrigins("https://localhost:5011",
-                                             "http://localhost:5010")
+                                         var originsSection = Configuration.GetSection("AppSettings:CorsOrigins");
+                                         var origins = originsSection.Get<string[]>();
+                                         builder.WithOrigins(origins)
                                              .AllowAnyHeader()
                                              .AllowAnyMethod();;
                                      });
@@ -35,7 +36,7 @@ namespace Roxosoft.Orders.Api {
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
-            app.UseCors(_webApiAllowSpecificOrigins); 
+            app.UseCors(WebApiAllowSpecificOrigins); 
             
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
