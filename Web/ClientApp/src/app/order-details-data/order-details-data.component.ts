@@ -1,7 +1,6 @@
 import {Component, Inject, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as common from '../common/common-data.module';
-import * as formatters from '../common/common-formatters.module';
 
 @Component({
   selector: 'app-order-details-data',
