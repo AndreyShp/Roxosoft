@@ -17,6 +17,4 @@ export interface Order {
   creationTime: Date;
   status: number;
   products: OrderProduct[];
-  temperatureF: number;
-  summary: string;
 }

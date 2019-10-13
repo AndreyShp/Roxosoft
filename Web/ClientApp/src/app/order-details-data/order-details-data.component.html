@@ -13,13 +13,13 @@
     <div class="col-md-2">Status:</div>
     <div class="col-md"><app-order-status [status]="order.status" [needTitle]="true"></app-order-status></div>
   </div>
-  <div class="row">
+  <div class="row mt-2">
     <div class="col-md-2">Total:</div>
-    <div class="col-md">summ //TODO: посчитать</div>
+    <div class="col-md">{{ summary.totalPrice }}</div>
   </div>
 </div>
 
-<table class='table' *ngIf="order && order.products">
+<table class='table mt-4' *ngIf="order && order.products">
   <thead>
     <tr>
       <th>Product Name</th>
@@ -39,9 +39,9 @@
   <tfoot>
     <tr>
       <td>Total</td>
-      <td>//TODO: Summ 2</td>
-      <td>//TODO: Summ 3</td>
-      <td>//TODO: Summ 4</td>
+      <td>{{ summary.quantity }}</td>
+      <td>{{ summary.price }}</td>
+      <td>{{ summary.totalPrice }}</td>
     </tr>
   </tfoot>
 </table>
