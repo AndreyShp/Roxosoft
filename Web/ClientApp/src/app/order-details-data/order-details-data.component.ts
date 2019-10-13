@@ -1,6 +1,7 @@
 import {Component, Inject, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as common from '../common/common-data.module';
+import * as formatters from '../common/common-formatters.module';
 
 @Component({
   selector: 'app-order-details-data',
@@ -11,18 +12,19 @@ export class OrderDetailsDataComponent {
   public summary: OrderSummary;
 
   _http: HttpClient;
-  _baseUrl: string;
+  _apiUrl: string;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(http: HttpClient, @Inject('ORDERS_API_URL') apiUrl: string) {
     this._http = http;
-    this._baseUrl = baseUrl;
+    this._apiUrl = apiUrl;
   }
 
   @Input('orderId')
   set orderId(orderId: number) {
     this.order = null;
     this.summary = null;
-    this._http.get<common.Order>(this._baseUrl + 'api/orders/' + orderId).subscribe( result => {
+
+    this._http.get<common.Order>(this._apiUrl + orderId).subscribe(result => {
       this.summary = new OrderSummary();
 
       for (let product of result.products) {
@@ -33,6 +35,10 @@ export class OrderDetailsDataComponent {
 
       this.order = result;
     }, error => console.error(error));
+  }
+
+  prettyOrderId(id: number) {
+    return formatters.prettyOrderId(id);
   }
 }
 

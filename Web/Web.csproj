@@ -22,6 +22,7 @@
         <Content Remove="$(SpaRoot)**" />
         <None Remove="$(SpaRoot)**" />
         <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+        <None Include="ClientApp\src\app\common\common-formatters.module.ts" />
         <None Include="ClientApp\src\app\order-details-data\order-details-data.component.css" />
         <None Include="ClientApp\src\app\order-status-component\order-status-component.component.html" />
         <None Include="ClientApp\src\app\orders-data\orders-data.component.html" />
@@ -35,6 +36,10 @@
 
     <ItemGroup>
       <EmbeddedResource Remove="ClientApp\src\app\order-status-component\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

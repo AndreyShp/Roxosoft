@@ -12,8 +12,8 @@ export class OrdersDataComponent {
   public selectedOrder: Order = null;
   @Output() onSelectOrder: EventEmitter<Order> = new EventEmitter();
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Order[]>(baseUrl + 'api/orders').subscribe(result => {
+  constructor(http: HttpClient, @Inject('ORDERS_API_URL') apiUrl: string) {
+    http.get<Order[]>(apiUrl).subscribe(result => {
       this.orders = result;
     }, error => console.error(error));
   }
